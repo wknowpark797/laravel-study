@@ -19,4 +19,11 @@ Route::get('/', function () {
 });
 
 // 게시판 목록 페이지
-Route::get('/boards', [BoardController::class, 'index'])->name('board.index');
+Route::get('/boards', [BoardController::class, 'index'])->name('boards.index');
+
+// 게시글 작성 페이지
+Route::get('/boards/create', [BoardController::class, 'create'])->name('boards.create');
+
+// 게시글 추가하기
+Route::post('/boards', [BoardController::class, 'store'])->name('boards.store');
+
