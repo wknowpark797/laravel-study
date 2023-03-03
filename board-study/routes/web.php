@@ -27,3 +27,5 @@ Route::get('/boards/create', [BoardController::class, 'create'])->name('boards.c
 // 게시글 추가하기
 Route::post('/boards', [BoardController::class, 'store'])->name('boards.store');
 
+// 게시글 상세 페이지
+Route::get('/boards/{id}', [BoardController::class, 'show'])->name('boards.show');

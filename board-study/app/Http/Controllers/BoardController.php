@@ -39,4 +39,10 @@ class BoardController extends Controller
         return redirect()->route('boards.index');
     }
 
+    // 게시글 상세 페이지
+    public function show($id) {
+        $board = Board::where('id', $id)->first();
+        return view('board.show', compact('board'));
+    }
+
 }

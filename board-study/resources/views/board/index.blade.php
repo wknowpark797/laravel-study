@@ -18,7 +18,9 @@
                 <tr>
                     <td>{{$board->id}}</td>
                     <td>{{$board->nickname}}</td>
-                    <td>{{$board->title}}</td>
+                    <td>
+                        <a href="{{route('boards.show', $board->id)}}">{{$board->title}}</a>
+                    </td>
                     <td>{{$board->created_at}}</td>
                 </tr>
             @endforeach
