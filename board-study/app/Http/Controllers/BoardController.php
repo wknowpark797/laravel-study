@@ -25,15 +25,15 @@ class BoardController extends Controller
 
     // 게시글 추가하기
     public function store(Request $request) {
-        $request = $request->validate([
+        $validation = $request->validate([
             'title'=>'required',
             'content'=>'required'
         ]);
 
         $board = new Board();
         $board->nickname = 'admin';
-        $board->title = $request->input('title');
-        $board->content = $request->input('content');
+        $board->title = $validation['title'];
+        $board->content = $validation['content'];
         $board->save();
 
         return redirect()->route('boards.index');
@@ -43,6 +43,27 @@ class BoardController extends Controller
     public function show($id) {
         $board = Board::where('id', $id)->first();
         return view('board.show', compact('board'));
+    }
+
+    // 게시글 수정 페이지
+    public function edit($id) {
+        $board = Board::where('id', $id)->first();
+        return view('board.edit', compact('board'));
+    }
+
+    // 게시글 수정하기
+    public function update(Request $request, $id) {
+        $validation = $request->validate([
+            'title'=>'required',
+            'content'=>'required'
+        ]);
+
+        $board = Board::where('id', $id)->first();
+        $board->title = $validation['title'];
+        $board->content = $validation['content'];
+        $board->save();
+
+        return redirect()->route('boards.index');
     }
 
 }

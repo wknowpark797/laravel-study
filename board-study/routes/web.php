@@ -29,3 +29,9 @@ Route::post('/boards', [BoardController::class, 'store'])->name('boards.store');
 
 // 게시글 상세 페이지
 Route::get('/boards/{id}', [BoardController::class, 'show'])->name('boards.show');
+
+// 게시글 수정 페이지
+Route::get('/boards/{id}/edit', [BoardController::class, 'edit'])->name('boards.edit');
+
+// 게시글 수정하기
+Route::patch('/boards/{id}', [BoardController::class, 'update'])->name('boards.update');

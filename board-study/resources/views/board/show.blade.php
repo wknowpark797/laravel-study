@@ -9,4 +9,8 @@
         {{$board->content}}
     </div>
 
+    <a href="{{route('boards.edit', $board->id)}}">
+        <button type="button">수정하기</button>
+    </a>
+
 @endsection
