@@ -66,4 +66,12 @@ class BoardController extends Controller
         return redirect()->route('boards.index');
     }
 
+    // 게시글 삭제하기
+    public function destroy($id) {
+        $board = Board::where('id', $id)->first();
+        $board->delete();
+        
+        return redirect()->route('boards.index');
+    }
+
 }

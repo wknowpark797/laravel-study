@@ -35,3 +35,6 @@ Route::get('/boards/{id}/edit', [BoardController::class, 'edit'])->name('boards.
 
 // 게시글 수정하기
 Route::patch('/boards/{id}', [BoardController::class, 'update'])->name('boards.update');
+
+// 게시글 삭제하기
+Route::delete('/boards/{id}', [BoardController::class, 'destroy'])->name('boards.destroy');

@@ -13,4 +13,10 @@
         <button type="button">수정하기</button>
     </a>
 
+    <form action="{{route('boards.destroy', $board->id)}}" method="post">
+        @method('DELETE')
+        @csrf
+        <button type="submit">삭제하기</button>
+    </form>
+
 @endsection
