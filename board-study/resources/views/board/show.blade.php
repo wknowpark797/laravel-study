@@ -1,4 +1,4 @@
-@extends('board.layout')
+@extends('layout')
 
 @section('content')
 
