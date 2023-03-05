@@ -28,7 +28,11 @@
             </textarea>
         </div>
 
-        <button type="submit">수정하기</button>
+        <button type="submit">수정</button>
+        
+        <a href="{{URL::previous()}}">
+            <button type="button">취소</button>
+        </a>
     </form>
 
 @endsection

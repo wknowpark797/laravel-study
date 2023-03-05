@@ -25,7 +25,11 @@
             <textarea name="content" id="content" cols="30" rows="10"></textarea>
         </div>
 
-        <button type="submit">작성하기</button>
+        <button type="submit">추가</button>
+        
+        <a href="{{route('boards.index')}}">
+            <button type="button">목록</button>
+        </a>
     </form>
 
 @endsection

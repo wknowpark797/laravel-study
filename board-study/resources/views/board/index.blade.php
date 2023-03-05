@@ -29,7 +29,7 @@
 
     <div>
         <a href="{{route('boards.create')}}">
-            <button type="button">글작성</button>
+            <button type="button">글쓰기</button>
         </a>
     </div>
 
