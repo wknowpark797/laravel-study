@@ -42,3 +42,6 @@ Route::delete('/boards/{id}', [BoardController::class, 'destroy'])->name('boards
 
 // 회원가입 페이지
 Route::get('/auth/register', [RegisterController::class, 'index'])->name('auth.register.index');
+
+// 회원가입
+Route::post('/auth/register', [RegisterController::class, 'store'])->name('auth.register.store');
