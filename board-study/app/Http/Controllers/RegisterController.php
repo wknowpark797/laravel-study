@@ -30,6 +30,6 @@ class RegisterController extends Controller
         $user->name = $validation['name'];
         $user->save();
 
-        return redirect()->route('boards.index');
+        return redirect()->route('home');
     }
 }

@@ -15,9 +15,10 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get('/', function () {
-    return view('home')->name('home');
-});
+Route::get('/', function() {
+    return view('home');
+})->name('home');
+
 
 // 게시판 목록 페이지
 Route::get('/boards', [BoardController::class, 'index'])->name('boards.index');
@@ -39,6 +40,7 @@ Route::patch('/boards/{id}', [BoardController::class, 'update'])->name('boards.u
 
 // 게시글 삭제하기
 Route::delete('/boards/{id}', [BoardController::class, 'destroy'])->name('boards.destroy');
+
 
 // 회원가입 페이지
 Route::get('/auth/register', [RegisterController::class, 'index'])->name('auth.register.index');

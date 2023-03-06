@@ -8,7 +8,10 @@
 </head>
 <body>
     <div class="container">
-        @include('header')
+        <header>
+            @include('partials.nav')
+        </header>
+        
         @yield('content')
     </div>
 </body>
