@@ -9,5 +9,5 @@ class Board extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nickname', 'title', 'content'];
+    protected $fillable = ['user_id', 'nickname', 'title', 'content'];
 }

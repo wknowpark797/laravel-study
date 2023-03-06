@@ -31,12 +31,13 @@ class BoardController extends Controller
         ]);
 
         $board = new Board();
-        $board->nickname = 'admin';
+        $board->user_id = auth()->user()->id;
+        $board->nickname = auth()->user()->name;
         $board->title = $validation['title'];
         $board->content = $validation['content'];
         $board->save();
 
-        return redirect()->route('boards.index');
+        return redirect()->route('boards.show', $board->id);
     }
 
     // 게시글 상세 페이지

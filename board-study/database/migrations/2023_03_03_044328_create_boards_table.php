@@ -17,10 +17,16 @@ class CreateBoardsTable extends Migration
     {
         Schema::create('boards', function (Blueprint $table) {
             $table->id();
+
+            $table->unsignedBigInteger('user_id');
+
             $table->string('nickname', 64); // byte 단위
             $table->string('title', 64);
             $table->string('content', 256);
             $table->timestamps();
+
+            // users 테이블의 id를 참조
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
