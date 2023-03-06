@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BoardController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,12 @@ Route::get('/auth/register', [RegisterController::class, 'index'])->name('auth.r
 
 // 회원가입
 Route::post('/auth/register', [RegisterController::class, 'store'])->name('auth.register.store');
+
+// 로그인 페이지
+Route::get('/auth/login', [LoginController::class, 'index'])->name('auth.login.index');
+
+// 로그인
+Route::post('/auth/login', [LoginController::class, 'login'])->name('auth.login.attempt');
+
+// 로그아웃
+Route::post('/auth/logout', [LoginController::class, 'logout'])->name('auth.logout');
