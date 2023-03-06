@@ -16,7 +16,7 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home')->name('home');
 });
 
 // 게시판 목록 페이지
