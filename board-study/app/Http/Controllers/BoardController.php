@@ -26,6 +26,7 @@ class BoardController extends Controller
     // 게시글 추가하기
     public function store(Request $request) {
         $validation = $request->validate([
+            'picture'=>'image|mimes:jpeg,jpg,png,gif,svg',
             'title'=>'required',
             'content'=>'required'
         ]);
@@ -35,6 +36,15 @@ class BoardController extends Controller
         $board->nickname = auth()->user()->name;
         $board->title = $validation['title'];
         $board->content = $validation['content'];
+
+        // 파일 업로드
+        if($request->hasFile('picture')) {
+            $fileName = time().'_'.$request->file('picture')->getClientOriginalName();
+            $path = $request->file('picture')->storeAs('public/images', $fileName);
+            $board->image_name = $fileName;
+            $board->image_path = $path;
+        }
+
         $board->save();
 
         return redirect()->route('boards.show', $board->id);

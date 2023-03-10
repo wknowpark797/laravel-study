@@ -13,7 +13,7 @@
         </ul>
     @endif
 
-    <form action="{{route('boards.store')}}" method="post">
+    <form action="{{route('boards.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div>
             <label for="title">제목 입력</label>
@@ -23,6 +23,11 @@
         <div>
             <label for="content">내용 입력</label>
             <textarea name="content" id="content" cols="30" rows="10"></textarea>
+        </div>
+
+        <div>
+            <label for="picture">파일 업로드</label>
+            <input type="file" id="picture" name="picture">
         </div>
 
         <button type="submit">추가</button>

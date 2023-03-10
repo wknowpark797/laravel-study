@@ -7,6 +7,7 @@
     <p>작성 날짜 : {{$board->created_at->format('Y-m-d')}}</p>
     <div>
         {{$board->content}}
+        <img src="{{asset('storage/images/'.$board->image_name)}}" alt="" style="width: 100px; height: 100px;">
     </div>
 
     <a href="{{route('boards.edit', $board->id)}}">

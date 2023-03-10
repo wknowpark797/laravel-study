@@ -23,6 +23,11 @@ class CreateBoardsTable extends Migration
             $table->string('nickname', 64); // byte 단위
             $table->string('title', 64);
             $table->string('content', 256);
+
+            // 파일 업로드
+            $table->string('image_name')->nullable();
+            $table->string('image_path')->nullable();
+
             $table->timestamps();
 
             // users 테이블의 id를 참조
