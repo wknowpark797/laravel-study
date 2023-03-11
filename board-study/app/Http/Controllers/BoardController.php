@@ -10,6 +10,7 @@ class BoardController extends Controller
 {
     /**
      * 권장되는 컨트롤러 액션명 참고
+     * -> 리소스풀 컨트롤러에 의해 설정된 액션들
      */
 
 
