@@ -16,11 +16,24 @@ use App\Http\Controllers\LoginController;
 |
 */
 
+/**
+ * web.php에 정의된 라우트 : 
+ * 브라우저를 통해서 유입되는 라우트 URL을 정의한다.
+ * 
+ * HTTP 메서드 : get, post, put, patch, delete, options
+ * -> 여러개 : match, any
+ */
+
 Route::get('/', function() {
     return view('home');
 })->name('home');
 
 
+/**
+ * 라우트 그룹 : 
+ * 미들웨어와 같은 라우트 속성을 공유할 수 있다.
+ * 많은 수의 라우트를 등록할 때 각각의 개별 라우트에 매번 속성들을 정의하지 않아도 된다.
+ */
 Route::middleware('auth')->prefix('boards')->group(function() {
 
     // 게시판 목록 페이지
@@ -33,6 +46,9 @@ Route::middleware('auth')->prefix('boards')->group(function() {
     Route::post('/', [BoardController::class, 'store'])->name('boards.store');
 
     // 게시글 상세 페이지
+    /**
+     * 필수 파라미터 : URI 세그먼트 사용
+     */
     Route::get('{id}', [BoardController::class, 'show'])->name('boards.show');
 
     // 게시글 수정 페이지

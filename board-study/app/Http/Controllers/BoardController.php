@@ -16,6 +16,10 @@ class BoardController extends Controller
     // 게시판 목록 페이지
     public function index() {
         return view('board.index', ['boards'=>Board::all()]);
+        /**
+         * view 라우트
+         * view(URI, 뷰 파일의 이름, view에 제공할 데이터들의 배열);
+         */
     }
 
     // 게시글 작성 페이지
@@ -24,6 +28,12 @@ class BoardController extends Controller
     }
 
     // 게시글 추가하기
+    /**
+     * 의존성 주입 : 
+     * 의존객체는 라라벨의 서비스 컨테이너에 의해서 자동으로 주입된다.
+     * 
+     * TODO: 서비스 컨테이너
+     */
     public function store(Request $request) {
         $validation = $request->validate([
             'picture'=>'image|mimes:jpeg,jpg,png,gif,svg',
@@ -63,6 +73,10 @@ class BoardController extends Controller
     }
 
     // 게시글 수정하기
+    /**
+     * 파라미터와 의존성 주입 : 
+     * 의존 객체 뒤에 라우트 파라미터를 나열해야 한다.
+     */
     public function update(Request $request, $id) {
         $validation = $request->validate([
             'title'=>'required',

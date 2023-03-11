@@ -13,6 +13,13 @@
         </ul>
     @endif
 
+    <!--
+        CSRF 보호하기 : 
+        web 라우트 파일안에 정의된 post, put, patch, delete를 가리키는
+        라우트들은 모두 CSRF 토큰 필드를 포함해야 한다.
+
+        TODO: CSRF
+    -->
     <form action="{{route('boards.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div>

@@ -16,6 +16,12 @@
     <form action="{{route('boards.update', $board->id)}}" method="post">
         @method('PATCH')
         @csrf
+        <!--
+            Form 메서드 Spoofing : 
+            HTML form은 put, patch, delete 액션을 지원하지 않는다.
+            -> method의 숨겨진 필드를 지정해야 한다.
+            -> method 필드로 보내진 값은 HTTP request 메서드를 판별한다.
+        -->
         <div>
             <label for="title">제목 입력</label>
             <input type="text" id="title" name="title" value="{{$board->title}}">
