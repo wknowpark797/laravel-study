@@ -17,8 +17,13 @@
         CSRF 보호하기 : 
         web 라우트 파일안에 정의된 post, put, patch, delete를 가리키는
         라우트들은 모두 CSRF 토큰 필드를 포함해야 한다.
+        -> 요청을 보낼 때 악성 애플리케이션이 접근할 수 없는 비밀 세션 값이 유효한지 검사해야 한다.
+        -> 사용자의 세션마다 CSRF 토큰을 자동으로 생성하고
+           이 토큰은 사용자의 세션에 저장되며 세션이 재생성 될 때마다 변경된다.
 
         TODO: CSRF
+        CSRF : 크로스-사이트 요청 위조 공격
+        -> 인증된 사용자를 대신해서 승인되지 않은 커맨드를 악의적으로 활용한다.
     -->
     <form action="{{route('boards.store')}}" method="post" enctype="multipart/form-data">
         @csrf
