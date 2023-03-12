@@ -54,6 +54,18 @@ class BoardController extends Controller
             $path = $request->file('picture')->storeAs('public/images', $fileName);
             $board->image_name = $fileName;
             $board->image_path = $path;
+
+            /**
+             * store 메소드 : 
+             * 파일 시스템에 설정된 루트 디렉토리로 부터 파일이 어디에
+             * 저장되어야 할지에 대한 경로를 전달 받는다.
+             * -> 파일의 이름은 자동으로 고유한 ID로 생성된다.
+             * -> 이 경로에는 파일 이름을 포함하지 않아야한다.
+             * 
+             * storeAs 메소드 : 
+             * 파일 이름이 자동으로 생성되지 않기를 원할 때 사용한다.
+             * storeAs(경로, 파일이름, 디스크 이름);
+             */
         }
 
         $board->save();
